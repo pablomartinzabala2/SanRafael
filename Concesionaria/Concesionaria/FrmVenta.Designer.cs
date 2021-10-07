@@ -303,6 +303,8 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
+            this.txtFechaDocumnto = new System.Windows.Forms.MaskedTextBox();
+            this.label80 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1683,6 +1685,8 @@
             // tabPage5
             // 
             this.tabPage5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage5.Controls.Add(this.label80);
+            this.tabPage5.Controls.Add(this.txtFechaDocumnto);
             this.tabPage5.Controls.Add(this.btnAbrirCuotas);
             this.tabPage5.Controls.Add(this.btnBorrarCuotas);
             this.tabPage5.Controls.Add(this.GrillaCuotas);
@@ -1703,7 +1707,7 @@
             // btnAbrirCuotas
             // 
             this.btnAbrirCuotas.Image = global::Concesionaria.Properties.Resources.zoom2;
-            this.btnAbrirCuotas.Location = new System.Drawing.Point(712, 15);
+            this.btnAbrirCuotas.Location = new System.Drawing.Point(777, 17);
             this.btnAbrirCuotas.Name = "btnAbrirCuotas";
             this.btnAbrirCuotas.Size = new System.Drawing.Size(34, 24);
             this.btnAbrirCuotas.TabIndex = 45;
@@ -1714,7 +1718,7 @@
             // btnBorrarCuotas
             // 
             this.btnBorrarCuotas.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnBorrarCuotas.Location = new System.Drawing.Point(672, 15);
+            this.btnBorrarCuotas.Location = new System.Drawing.Point(737, 17);
             this.btnBorrarCuotas.Name = "btnBorrarCuotas";
             this.btnBorrarCuotas.Size = new System.Drawing.Size(34, 24);
             this.btnBorrarCuotas.TabIndex = 26;
@@ -1734,7 +1738,7 @@
             // 
             // txtCuotas
             // 
-            this.txtCuotas.Location = new System.Drawing.Point(500, 15);
+            this.txtCuotas.Location = new System.Drawing.Point(425, 17);
             this.txtCuotas.Name = "txtCuotas";
             this.txtCuotas.Size = new System.Drawing.Size(116, 22);
             this.txtCuotas.TabIndex = 5;
@@ -1743,7 +1747,7 @@
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(438, 15);
+            this.label33.Location = new System.Drawing.Point(368, 17);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(50, 16);
             this.label33.TabIndex = 4;
@@ -1751,7 +1755,7 @@
             // 
             // txtInteres
             // 
-            this.txtInteres.Location = new System.Drawing.Point(280, 15);
+            this.txtInteres.Location = new System.Drawing.Point(249, 15);
             this.txtInteres.Name = "txtInteres";
             this.txtInteres.Size = new System.Drawing.Size(116, 22);
             this.txtInteres.TabIndex = 3;
@@ -1761,7 +1765,7 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(216, 15);
+            this.label32.Location = new System.Drawing.Point(195, 15);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(48, 16);
             this.label32.TabIndex = 2;
@@ -1769,7 +1773,7 @@
             // 
             // txtCapital
             // 
-            this.txtCapital.Location = new System.Drawing.Point(82, 15);
+            this.txtCapital.Location = new System.Drawing.Point(73, 15);
             this.txtCapital.Name = "txtCapital";
             this.txtCapital.Size = new System.Drawing.Size(116, 22);
             this.txtCapital.TabIndex = 1;
@@ -1788,7 +1792,7 @@
             // btnCalcularCuotas
             // 
             this.btnCalcularCuotas.Image = global::Concesionaria.Properties.Resources.money_euro;
-            this.btnCalcularCuotas.Location = new System.Drawing.Point(632, 15);
+            this.btnCalcularCuotas.Location = new System.Drawing.Point(692, 17);
             this.btnCalcularCuotas.Name = "btnCalcularCuotas";
             this.btnCalcularCuotas.Size = new System.Drawing.Size(34, 24);
             this.btnCalcularCuotas.TabIndex = 24;
@@ -3166,6 +3170,24 @@
             this.btnGrabarPreVenta.UseVisualStyleBackColor = true;
             this.btnGrabarPreVenta.Click += new System.EventHandler(this.btnGrabarPreVenta_Click);
             // 
+            // txtFechaDocumnto
+            // 
+            this.txtFechaDocumnto.Location = new System.Drawing.Point(595, 17);
+            this.txtFechaDocumnto.Mask = "00/00/0000";
+            this.txtFechaDocumnto.Name = "txtFechaDocumnto";
+            this.txtFechaDocumnto.Size = new System.Drawing.Size(91, 22);
+            this.txtFechaDocumnto.TabIndex = 46;
+            this.txtFechaDocumnto.ValidatingType = typeof(System.DateTime);
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(545, 17);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(46, 16);
+            this.label80.TabIndex = 47;
+            this.label80.Text = "Fecha";
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3525,5 +3547,7 @@
         private System.Windows.Forms.TextBox txtRutaImagenCliente;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox txtRutaAuto;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.MaskedTextBox txtFechaDocumnto;
     }
 }

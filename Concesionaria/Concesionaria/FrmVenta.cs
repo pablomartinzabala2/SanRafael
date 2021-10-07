@@ -60,6 +60,7 @@ namespace Concesionaria
             tbTarjeta = fun.CrearTabla("CodTarjeta;Nombre;Importe");
             OcultarVendedor(false);
             txtFecha.Text = DateTime.Now.ToShortDateString();
+            txtFechaDocumnto.Text = DateTime.Now.ToShortDateString();
             cPapeles papel = new cPapeles();
             DataTable tbPapeles = papel.GetPapeles();
             ListaPapeles.DataSource = tbPapeles;
@@ -485,9 +486,9 @@ namespace Concesionaria
         }
 
         private void btnCalcularCuotas_Click(object sender, EventArgs e)
-        {
+        {  
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFecha.Text) == false)
+            if (fun.ValidarFecha(txtFechaDocumnto.Text) == false)
             {
                 MessageBox.Show("Debe ingresar una fecha válida", Clases.cMensaje.Mensaje());
                 return;
@@ -550,7 +551,7 @@ namespace Concesionaria
             ValorCuota = CapitalConInteres / Cuotas;
             Int32 ValorCuotaEntero = Convert.ToInt32(ValorCuota);
             Int32 ValorCuotaSinInteres = Convert.ToInt32(Capital / Cuotas);
-            DateTime FechaVencimiento = Convert.ToDateTime(txtFecha.Text);
+            DateTime FechaVencimiento = Convert.ToDateTime(txtFechaDocumnto.Text);
             DataTable tcuotas = new DataTable();
             tcuotas.Columns.Add("Cuota");
             tcuotas.Columns.Add("Importe");
