@@ -4738,6 +4738,31 @@ namespace Concesionaria
             FrmVerFotos frm = new FrmVerFotos();
             frm.ShowDialog();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label82_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label83_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage20_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 };
 

@@ -305,6 +305,16 @@
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
             this.txtFechaDocumnto = new System.Windows.Forms.MaskedTextBox();
             this.label80 = new System.Windows.Forms.Label();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.label81 = new System.Windows.Forms.Label();
+            this.txtFechaPstVenta = new System.Windows.Forms.MaskedTextBox();
+            this.txtCostoPostVenta = new System.Windows.Forms.TextBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.txtDescripcionCostoPostVenta = new System.Windows.Forms.TextBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.btnGrabarCostoPostVenta = new System.Windows.Forms.Button();
+            this.btnAnularCostoPostVenta = new System.Windows.Forms.Button();
+            this.GrillaPostVenta = new System.Windows.Forms.DataGridView();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -347,6 +357,8 @@
             this.tabPage17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).BeginInit();
             this.groupBox55.SuspendLayout();
+            this.tabPage20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaPostVenta)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1676,6 +1688,7 @@
             this.tabControl2.Controls.Add(this.tabPage9);
             this.tabControl2.Controls.Add(this.tabPage14);
             this.tabControl2.Controls.Add(this.tabPage17);
+            this.tabControl2.Controls.Add(this.tabPage20);
             this.tabControl2.Location = new System.Drawing.Point(0, 22);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
@@ -3188,6 +3201,114 @@
             this.label80.TabIndex = 47;
             this.label80.Text = "Fecha";
             // 
+            // tabPage20
+            // 
+            this.tabPage20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.tabPage20.Controls.Add(this.GrillaPostVenta);
+            this.tabPage20.Controls.Add(this.btnAnularCostoPostVenta);
+            this.tabPage20.Controls.Add(this.btnGrabarCostoPostVenta);
+            this.tabPage20.Controls.Add(this.txtDescripcionCostoPostVenta);
+            this.tabPage20.Controls.Add(this.label83);
+            this.tabPage20.Controls.Add(this.txtCostoPostVenta);
+            this.tabPage20.Controls.Add(this.label82);
+            this.tabPage20.Controls.Add(this.label81);
+            this.tabPage20.Controls.Add(this.txtFechaPstVenta);
+            this.tabPage20.Location = new System.Drawing.Point(4, 25);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Size = new System.Drawing.Size(867, 168);
+            this.tabPage20.TabIndex = 10;
+            this.tabPage20.Text = "Gastos post Venta";
+            this.tabPage20.Click += new System.EventHandler(this.tabPage20_Click);
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(10, 19);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(46, 16);
+            this.label81.TabIndex = 49;
+            this.label81.Text = "Fecha";
+            // 
+            // txtFechaPstVenta
+            // 
+            this.txtFechaPstVenta.Location = new System.Drawing.Point(60, 19);
+            this.txtFechaPstVenta.Mask = "00/00/0000";
+            this.txtFechaPstVenta.Name = "txtFechaPstVenta";
+            this.txtFechaPstVenta.Size = new System.Drawing.Size(91, 22);
+            this.txtFechaPstVenta.TabIndex = 48;
+            this.txtFechaPstVenta.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtCostoPostVenta
+            // 
+            this.txtCostoPostVenta.AcceptsTab = true;
+            this.txtCostoPostVenta.Location = new System.Drawing.Point(216, 19);
+            this.txtCostoPostVenta.Name = "txtCostoPostVenta";
+            this.txtCostoPostVenta.Size = new System.Drawing.Size(116, 22);
+            this.txtCostoPostVenta.TabIndex = 51;
+            this.txtCostoPostVenta.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(157, 19);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(53, 16);
+            this.label82.TabIndex = 50;
+            this.label82.Text = "Importe";
+            this.label82.Click += new System.EventHandler(this.label82_Click);
+            // 
+            // txtDescripcionCostoPostVenta
+            // 
+            this.txtDescripcionCostoPostVenta.AcceptsTab = true;
+            this.txtDescripcionCostoPostVenta.Location = new System.Drawing.Point(425, 16);
+            this.txtDescripcionCostoPostVenta.Name = "txtDescripcionCostoPostVenta";
+            this.txtDescripcionCostoPostVenta.Size = new System.Drawing.Size(223, 22);
+            this.txtDescripcionCostoPostVenta.TabIndex = 53;
+            this.txtDescripcionCostoPostVenta.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(338, 22);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(80, 16);
+            this.label83.TabIndex = 52;
+            this.label83.Text = "Descripción";
+            this.label83.Click += new System.EventHandler(this.label83_Click);
+            // 
+            // btnGrabarCostoPostVenta
+            // 
+            this.btnGrabarCostoPostVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGrabarCostoPostVenta.Location = new System.Drawing.Point(654, 12);
+            this.btnGrabarCostoPostVenta.Name = "btnGrabarCostoPostVenta";
+            this.btnGrabarCostoPostVenta.Size = new System.Drawing.Size(87, 36);
+            this.btnGrabarCostoPostVenta.TabIndex = 54;
+            this.btnGrabarCostoPostVenta.Text = "Grabar";
+            this.btnGrabarCostoPostVenta.UseVisualStyleBackColor = true;
+            this.btnGrabarCostoPostVenta.Visible = false;
+            // 
+            // btnAnularCostoPostVenta
+            // 
+            this.btnAnularCostoPostVenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAnularCostoPostVenta.Location = new System.Drawing.Point(747, 12);
+            this.btnAnularCostoPostVenta.Name = "btnAnularCostoPostVenta";
+            this.btnAnularCostoPostVenta.Size = new System.Drawing.Size(87, 36);
+            this.btnAnularCostoPostVenta.TabIndex = 55;
+            this.btnAnularCostoPostVenta.Text = "Anular";
+            this.btnAnularCostoPostVenta.UseVisualStyleBackColor = true;
+            this.btnAnularCostoPostVenta.Visible = false;
+            // 
+            // GrillaPostVenta
+            // 
+            this.GrillaPostVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaPostVenta.Location = new System.Drawing.Point(13, 44);
+            this.GrillaPostVenta.Name = "GrillaPostVenta";
+            this.GrillaPostVenta.ReadOnly = true;
+            this.GrillaPostVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaPostVenta.ShowEditingIcon = false;
+            this.GrillaPostVenta.Size = new System.Drawing.Size(824, 113);
+            this.GrillaPostVenta.TabIndex = 56;
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3267,6 +3388,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.GrillaTarjeta)).EndInit();
             this.groupBox55.ResumeLayout(false);
             this.groupBox55.PerformLayout();
+            this.tabPage20.ResumeLayout(false);
+            this.tabPage20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaPostVenta)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3549,5 +3673,15 @@
         private System.Windows.Forms.TextBox txtRutaAuto;
         private System.Windows.Forms.Label label80;
         private System.Windows.Forms.MaskedTextBox txtFechaDocumnto;
+        private System.Windows.Forms.TabPage tabPage20;
+        private System.Windows.Forms.TextBox txtCostoPostVenta;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.MaskedTextBox txtFechaPstVenta;
+        private System.Windows.Forms.TextBox txtDescripcionCostoPostVenta;
+        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Button btnAnularCostoPostVenta;
+        private System.Windows.Forms.Button btnGrabarCostoPostVenta;
+        private System.Windows.Forms.DataGridView GrillaPostVenta;
     }
 }
