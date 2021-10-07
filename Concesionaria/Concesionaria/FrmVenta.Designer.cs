@@ -3286,6 +3286,7 @@
             this.btnGrabarCostoPostVenta.Text = "Grabar";
             this.btnGrabarCostoPostVenta.UseVisualStyleBackColor = true;
             this.btnGrabarCostoPostVenta.Visible = false;
+            this.btnGrabarCostoPostVenta.Click += new System.EventHandler(this.btnGrabarCostoPostVenta_Click);
             // 
             // btnAnularCostoPostVenta
             // 
