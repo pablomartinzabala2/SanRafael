@@ -13,6 +13,7 @@ namespace Concesionaria
     public partial class FrmVenta : Form
     {  //comentario
         DataTable tbListaPapeles;
+        
         private Boolean GrabaClienteNuevo;
         private Int32 SigueMarca;
         private Int32 SigueCiudad;
@@ -60,6 +61,8 @@ namespace Concesionaria
             tbTarjeta = fun.CrearTabla("CodTarjeta;Nombre;Importe");
             OcultarVendedor(false);
             txtFecha.Text = DateTime.Now.ToShortDateString();
+            txtFechaDocumnto.Text = DateTime.Now.ToShortDateString();
+            txtFechaPstVenta.Text DateTime.Now.ToShortDateString();
             cPapeles papel = new cPapeles();
             DataTable tbPapeles = papel.GetPapeles();
             ListaPapeles.DataSource = tbPapeles;
@@ -119,6 +122,8 @@ namespace Concesionaria
             tbCobranza = new DataTable();
             string ColCob = "Cuota;Importe;FechaVencimiento;FechaPago;Saldo;CodCobranza";
             tbCobranza = fun.CrearTabla(ColCob);
+            
+
         }
 
         private void txtPatente_TextChanged(object sender, EventArgs e)
@@ -485,9 +490,9 @@ namespace Concesionaria
         }
 
         private void btnCalcularCuotas_Click(object sender, EventArgs e)
-        {
+        {  
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFecha.Text) == false)
+            if (fun.ValidarFecha(txtFechaDocumnto.Text) == false)
             {
                 MessageBox.Show("Debe ingresar una fecha válida", Clases.cMensaje.Mensaje());
                 return;
@@ -550,7 +555,7 @@ namespace Concesionaria
             ValorCuota = CapitalConInteres / Cuotas;
             Int32 ValorCuotaEntero = Convert.ToInt32(ValorCuota);
             Int32 ValorCuotaSinInteres = Convert.ToInt32(Capital / Cuotas);
-            DateTime FechaVencimiento = Convert.ToDateTime(txtFecha.Text);
+            DateTime FechaVencimiento = Convert.ToDateTime(txtFechaDocumnto.Text);
             DataTable tcuotas = new DataTable();
             tcuotas.Columns.Add("Cuota");
             tcuotas.Columns.Add("Importe");
@@ -4736,6 +4741,62 @@ namespace Concesionaria
             Principal.RutaImagen = txtRutaImagenCliente.Text;
             FrmVerFotos frm = new FrmVerFotos();
             frm.ShowDialog();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label82_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label83_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGrabarCostoPostVenta_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            if (txtCostoPostVenta.Text =="")
+            {
+                Mensaje("Debe ingresar un costo post venta");
+                return; 
+            }
+            if (txtDescripcionCostoPostVenta.Text =="")
+            {
+                Mensaje("Debe ingresar una descripción del costo");
+                return;
+            }
+             
+            if (fun.ValidarFecha (txtFechaPstVenta.Text)==false)
+            {
+                Mensaje("La fecha del costo ingresada es incorrecta");
+                return;
+            }
+
+            Int32 CodVenta = 0;
+            string Nombre = txtDescripcionCostoPostVenta.Text;
+            Double Importe = Convert.ToDouble(txtCostoPostVenta.Text);
+            DateTime Fecha = Convert.ToDateTime(txtFechaPstVenta.Text);
+            if (Principal.CodigoPrincipalAbm != nul)
+            {
+                CodVenta = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            }
+
         }
     }
 };
