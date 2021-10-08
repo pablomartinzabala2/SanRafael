@@ -162,5 +162,18 @@ namespace Concesionaria
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();
         }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Botonera(2);
+            Grupo.Enabled = true;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Botonera(1);
+            Grupo.Enabled = false;
+            fun.LimpiarGenerico(this);
+        }
     }
 }
