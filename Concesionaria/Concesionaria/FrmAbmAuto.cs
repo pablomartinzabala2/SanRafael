@@ -21,12 +21,21 @@ namespace Concesionaria
             Botonera(1);
             Grupo.Enabled = false;  
             Clases.cFunciones fun = new Clases.cFunciones();
-            fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
+            //fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
+            CargarMarcaAuto();
             fun.LlenarCombo(cmbProvincia , "Provincia", "Nombre", "CodProvincia");
             fun.LlenarCombo(cmb_CodTipoCombustible, "TipoCombustible", "Nombre", "Codigo");
             fun.LlenarCombo(cmb_CodTipoUtilitario, "TipoUtilitario", "Nombre", "CodTipo");
             fun.LlenarCombo(cmb_CodSucursal, "Sucursal", "Nombre", "CodSucursal");
          }
+
+        private void CargarMarcaAuto()
+        {
+            cFunciones fun = new cFunciones();
+            cMarca marca = new Clases.cMarca();
+            DataTable trdo = marca.GetMarcaAuto();
+            fun.LlenarComboDatatable(cmb_CodMarca, trdo, "Nombre", "CodMarca");
+        }
 
         private void InicializarComponentes()
         {
@@ -326,8 +335,7 @@ namespace Concesionaria
             fun.LimpiarGenerico(this);
             txtCodAuto.Text = "";
             Grupo.Enabled = true;
-            if (cmb_CodMarca.Items.Count > 0)
-                cmb_CodMarca.SelectedIndex = 1;
+            
         }
 
         private void btnEditar_Click_1(object sender, EventArgs e)
@@ -472,6 +480,11 @@ namespace Concesionaria
             {
                 txt_RutaImagen.Text = "";
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -24,5 +24,19 @@ namespace Concesionaria.Clases
             string sql = "select * from Marca";
             return cDb.ExecuteDataTable(sql);
         }
+
+        public DataTable GetMarcaAuto()
+        {
+            string sql = "select * from Marca where auto = 1";
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public void ActualizarMarcaAuto(Int32 CodMarca)
+        {
+            string sql = "update Marca set Auto = 1";
+            sql = sql + " where CodMarca=" + CodMarca.ToString();
+            cDb.ExecutarNonQuery(sql);
+        }
+
     }
 }

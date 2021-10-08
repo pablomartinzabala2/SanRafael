@@ -157,6 +157,7 @@ namespace Concesionaria
             }
             VerificarPablo();
             cFunciones fun = new cFunciones();
+            /*
             string Col = "Fecha;Apellido;Nombre;Telefono;Texto";
             tbLista = fun.CrearTabla(Col);
             cCliente cli = new cCliente();
@@ -166,6 +167,7 @@ namespace Concesionaria
             DateTime Fut = Hoy.AddDays(3);
             //busca los cumpleaños y vencimiento prendas
             GetInfo(Ant, Fut);
+            */
            
         }
 
@@ -608,6 +610,8 @@ namespace Concesionaria
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Principal.CampoIdSecundarioGenerado = null;
+            Principal.CodigoPrincipalAbm = null;
             FrmAbmAuto frm = new FrmAbmAuto();
             frm.MdiParent = this;
             frm.Show();
@@ -734,6 +738,10 @@ namespace Concesionaria
             }
         }
 
-        
+        private void bicicletasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmBici form = new FrmAbmBici();
+            form.Show();
+        }
     }
 }

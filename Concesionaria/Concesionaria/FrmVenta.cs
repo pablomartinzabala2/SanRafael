@@ -62,7 +62,7 @@ namespace Concesionaria
             OcultarVendedor(false);
             txtFecha.Text = DateTime.Now.ToShortDateString();
             txtFechaDocumnto.Text = DateTime.Now.ToShortDateString();
-            txtFechaPstVenta.Text DateTime.Now.ToShortDateString();
+            txtFechaPstVenta.Text =DateTime.Now.ToShortDateString();
             cPapeles papel = new cPapeles();
             DataTable tbPapeles = papel.GetPapeles();
             ListaPapeles.DataSource = tbPapeles;
@@ -80,6 +80,7 @@ namespace Concesionaria
             {
                 string Cod = Principal.CodigoPrincipalAbm;
                 BuscarVenta(Convert.ToInt32(Cod));
+                BuscarGastosPostVenta(Convert.ToInt32(Cod));
                 GetVentaxtarjeta(Convert.ToInt32(Cod));
                 btnGrabar.Visible = false;
                 btnAnular.Visible = false;
@@ -4770,6 +4771,11 @@ namespace Concesionaria
 
         private void btnGrabarCostoPostVenta_Click(object sender, EventArgs e)
         {
+            if (Principal.CodigoPrincipalAbm ==null)
+            {
+                Mensaje("Debe realizarse la venta antes de guardar el costo");
+                return;
+            }
             cFunciones fun = new cFunciones();
             if (txtCostoPostVenta.Text =="")
             {
@@ -4792,11 +4798,83 @@ namespace Concesionaria
             string Nombre = txtDescripcionCostoPostVenta.Text;
             Double Importe = Convert.ToDouble(txtCostoPostVenta.Text);
             DateTime Fecha = Convert.ToDateTime(txtFechaPstVenta.Text);
-            if (Principal.CodigoPrincipalAbm != nul)
+            Int32 CodStock = 0;
+            if (txtCodStock.Text !="")
+            {
+                CodStock = Convert.ToInt32(txtCodStock.Text);
+            }
+            if (Principal.CodigoPrincipalAbm != null)
             {
                 CodVenta = Convert.ToInt32(Principal.CodigoPrincipalAbm);
             }
+            int CodUsuario = Principal.CodUsuarioLogueado;
+            cMovimiento mov = new cMovimiento();
+            cCostoPostVenta costo = new cCostoPostVenta();
+            costo.Insertar(CodVenta, Nombre, Importe, Fecha, CodStock);
+            mov.RegistrarMovimientoDescripcion(CodVenta, CodUsuario, -1 * Importe,
+                0, 0, 0, 0, Fecha, Nombre);
+            BuscarGastosPostVenta(CodVenta);
+            Mensaje("Datos grabados correctamente");
+        }
 
+        private void BuscarGastosPostVenta(Int32 CodVenta)
+        {
+            cFunciones fun = new Clases.cFunciones();
+            cCostoPostVenta costo = new cCostoPostVenta();
+            DataTable trdo = costo.GetCosto(CodVenta);
+            trdo = fun.TablaaMiles(trdo, "Importe");
+            GrillaPostVenta.DataSource = trdo;
+            string Col = "0;0;50;25;25";
+            fun.AnchoColumnas(GrillaPostVenta, Col);
+        }
+
+        private void btnAnularCostoPostVenta_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            if (GrillaPostVenta.CurrentRow == null)
+            {
+                Mensaje("Debe seleccionar un elemento");
+                return;
+            }
+
+            if (fun.ValidarFecha(txtFechaPstVenta.Text) == false)
+            {
+                Mensaje("La fecha del costo ingresada es incorrecta");
+                return;
+            }
+
+            string msj = "Confirma Eliminar el costo ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            DateTime Fecha = Convert.ToDateTime(txtFechaPstVenta.Text);
+            cCostoPostVenta costo = new cCostoPostVenta();
+            Int32 CodCosto = Convert.ToInt32(GrillaPostVenta.CurrentRow.Cells[0].Value);
+            DataTable trdo = costo.GetCostoxCodCosto(CodCosto);
+            Double Importe = 0;
+            String Nombre = "";
+            Int32 CodVenta = 0;
+            if (trdo.Rows.Count >0)
+            {
+                Importe = Convert.ToDouble(trdo.Rows[0]["Importe"]);
+                Nombre = trdo.Rows[0]["Nombre"].ToString();
+                CodVenta = Convert.ToInt32(trdo.Rows[0]["CodVenta"]);
+            }
+            string Descripcion = "Costo Anulado " + Nombre;
+            Int32 CodUsuario = Convert.ToInt32(Principal.CodUsuarioLogueado); 
+            cMovimiento mov = new cMovimiento();
+            mov.RegistrarMovimientoDescripcion(CodVenta, CodUsuario, Importe,
+               0, 0, 0, 0, Fecha, Descripcion);
+            costo.BorrarCosto(CodCosto);
+            BuscarGastosPostVenta(CodVenta);
+            Mensaje("Datos grabados correctamente");
         }
     }
 };

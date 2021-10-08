@@ -65,6 +65,7 @@
     <Compile Include="Clases\cAuto.cs" />
     <Compile Include="Clases\cBanco.cs" />
     <Compile Include="Clases\cBarrio.cs" />
+    <Compile Include="Clases\cBici.cs" />
     <Compile Include="Clases\cCategoriaGasto.cs" />
     <Compile Include="Clases\cCheque.cs" />
     <Compile Include="Clases\cChequeCobrar.cs" />
@@ -80,6 +81,7 @@
     <Compile Include="Clases\cConexion.cs" />
     <Compile Include="Clases\cConfiguracion.cs" />
     <Compile Include="Clases\cCosto.cs" />
+    <Compile Include="Clases\cCostoPostVenta.cs" />
     <Compile Include="Clases\cCuota.cs" />
     <Compile Include="Clases\cCuotasAnteriores.cs" />
     <Compile Include="Clases\cDb.cs" />
@@ -142,6 +144,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormBase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBase.Designer.cs">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAbmAuto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -159,6 +167,12 @@
     </Compile>
     <Compile Include="FrmAbmBarrio.designer.cs">
       <DependentUpon>FrmAbmBarrio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAbmBici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmBici.Designer.cs">
+      <DependentUpon>FrmAbmBici.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAbmCategoriaGastoRecepcion.cs">
       <SubType>Form</SubType>
@@ -723,6 +737,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormBase.resx">
+      <DependentUpon>FormBase.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmAuto.resx">
       <DependentUpon>FrmAbmAuto.cs</DependentUpon>
     </EmbeddedResource>
@@ -731,6 +748,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmBarrio.resx">
       <DependentUpon>FrmAbmBarrio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmBici.resx">
+      <DependentUpon>FrmAbmBici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmCategoriaGastoRecepcion.resx">
       <DependentUpon>FrmAbmCategoriaGastoRecepcion.cs</DependentUpon>

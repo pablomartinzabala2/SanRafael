@@ -52,7 +52,7 @@ namespace Concesionaria
         {
             txtFecha.Text = DateTime.Now.ToShortDateString();
             Clases.cFunciones fun = new Clases.cFunciones();
-            fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
+            CargarMarcaAuto();
             //  fun.LlenarCombo(cmbCiudad, "Ciudad", "Nombre", "CodCiudad");
             if (cmbCiudad.Items.Count > 0)
                 cmbCiudad.SelectedValue = 1;
@@ -84,6 +84,14 @@ namespace Concesionaria
             tbListaPapeles.Columns.Add("FechaVencimiento");
             string ColCliente = "CodCliente;Apellido;Nombre;Nrodocumento;Telefono";
             tbCliente = fun.CrearTabla(ColCliente);
+        }
+
+        private void CargarMarcaAuto()
+        {
+            cFunciones fun = new cFunciones();
+            cMarca marca = new Clases.cMarca();
+            DataTable trdo = marca.GetMarcaAuto();
+            fun.LlenarComboDatatable(cmb_CodMarca, trdo, "Nombre", "CodMarca");
         }
 
         private void GrabarAutos(SqlConnection con, SqlTransaction Transaccion)
@@ -691,8 +699,12 @@ namespace Concesionaria
 
                         break;
                     case "Marca":
-                        fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
-                        cmb_CodMarca.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        Int32 CodMarca = Convert.ToInt32(Principal.CampoIdSecundarioGenerado);
+                        cMarca marca = new Clases.cMarca();
+                        marca.ActualizarMarcaAuto(CodMarca);
+                        CargarMarcaAuto();
+                        //fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
+                        cmb_CodMarca.SelectedValue = CodMarca;
                         break;
                     case "Barrio":
                         Int32 CodCity = Convert.ToInt32(cmbCiudad2.SelectedValue);

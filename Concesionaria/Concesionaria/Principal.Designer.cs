@@ -42,6 +42,7 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriaDeGastosDeRecepciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tarjetaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.papelesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAgregarCosto = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +91,9 @@
             this.registrarGastosGeneralesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip = new System.Windows.Forms.ToolStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -102,10 +106,7 @@
             this.btnConsultaAgenda = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.BtnBorrarTablas = new System.Windows.Forms.ToolStripButton();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.papelesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bicicletasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
@@ -141,6 +142,7 @@
             this.categoriaDeGastosDeRecepciónToolStripMenuItem,
             this.tarjetaToolStripMenuItem,
             this.papelesToolStripMenuItem,
+            this.bicicletasToolStripMenuItem,
             this.exitToolStripMenuItem});
             this.fileMenu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.fileMenu.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
@@ -219,6 +221,13 @@
             this.tarjetaToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
             this.tarjetaToolStripMenuItem.Text = "Tarjeta";
             this.tarjetaToolStripMenuItem.Click += new System.EventHandler(this.tarjetaToolStripMenuItem_Click);
+            // 
+            // papelesToolStripMenuItem
+            // 
+            this.papelesToolStripMenuItem.Name = "papelesToolStripMenuItem";
+            this.papelesToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
+            this.papelesToolStripMenuItem.Text = "Papeles";
+            this.papelesToolStripMenuItem.Click += new System.EventHandler(this.papelesToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -617,6 +626,22 @@
             this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "ToolStrip";
             // 
+            // statusStrip
+            // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 431);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(632, 22);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
+            this.toolStripStatusLabel.Text = "Status";
+            // 
             // newToolStripButton
             // 
             this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -742,28 +767,12 @@
             this.BtnBorrarTablas.ToolTipText = "Borrar Tablas";
             this.BtnBorrarTablas.Click += new System.EventHandler(this.BtnBorrarTablas_Click);
             // 
-            // statusStrip
+            // bicicletasToolStripMenuItem
             // 
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 431);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(632, 22);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
-            this.toolStripStatusLabel.Text = "Status";
-            // 
-            // papelesToolStripMenuItem
-            // 
-            this.papelesToolStripMenuItem.Name = "papelesToolStripMenuItem";
-            this.papelesToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
-            this.papelesToolStripMenuItem.Text = "Papeles";
-            this.papelesToolStripMenuItem.Click += new System.EventHandler(this.papelesToolStripMenuItem_Click);
+            this.bicicletasToolStripMenuItem.Name = "bicicletasToolStripMenuItem";
+            this.bicicletasToolStripMenuItem.Size = new System.Drawing.Size(292, 22);
+            this.bicicletasToolStripMenuItem.Text = "Bicicletas";
+            this.bicicletasToolStripMenuItem.Click += new System.EventHandler(this.bicicletasToolStripMenuItem_Click);
             // 
             // Principal
             // 
@@ -868,6 +877,7 @@
         private System.Windows.Forms.ToolStripMenuItem comprasToolStripMenuItem;
         private System.Windows.Forms.ToolStripButton BtnBorrarTablas;
         private System.Windows.Forms.ToolStripMenuItem papelesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bicicletasToolStripMenuItem;
     }
 }
 

@@ -68,6 +68,7 @@ namespace Concesionaria.Clases
             sql = sql + " + (select isnull(sum(Importe),0) from DiferenciaTransferencia dif where dif.CodVenta = v.CodVenta )";
             sql = sql + " + (select isnull(sum(Diferencia),0) from Prenda Pren where Pren.CodVenta = v.CodVenta )";
             sql = sql + " - (select isnull(sum(Importe),0) from Impuesto Imp where Imp.CodVenta = v.CodVenta )";
+            sql = sql + " -(select isnull(sum(Importe),0) from CostoPostVenta gpv where gpv.CodStock = v.CodStock)";
             sql = sql + " ) as Ganancia";
             sql = sql + ",v.CodCliente";
             sql = sql + " from venta v,cliente c,auto a,stockauto sa";

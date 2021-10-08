@@ -19,9 +19,10 @@ namespace Concesionaria.Clases
             sql = sql + " - (select isnull(sum(ssa.ImporteCompra),0) from StockAuto ssa where ssa.CodStock = v.CodStock)";
             sql = sql + " - (select isnull(sum(Importe),0) from Costo cst where cst.CodStock = v.CodStock)";
             sql = sql + " -(select isnull(sum(Importe),0) from gasto gst where gst.CodStock = v.CodStock)";
+            //sql = sql + " -(select isnull(sum(Importe),0) from CostoPostVenta gpv where gpv.CodStock = v.CodStock)";
             //sql = sql + " - (select isnull(sum(Importe),0) from GastosRecepcionxAuto gra where gra.CodStock = v.CodStock)";
-           // sql = sql + " - (select isnull(sum(Importe),0) from ComisionVendedor co where co.CodVenta = v.CodVenta )";
-          //  sql = sql + " - (select isnull(sum(Importe),0) from Garantia gar where gar.CodVenta = v.CodVenta )";
+            // sql = sql + " - (select isnull(sum(Importe),0) from ComisionVendedor co where co.CodVenta = v.CodVenta )";
+            //  sql = sql + " - (select isnull(sum(Importe),0) from Garantia gar where gar.CodVenta = v.CodVenta )";
             //sql = sql + " + (select isnull(sum(Importe),0) from DiferenciaTransferencia dif where dif.CodVenta = v.CodVenta )";
             //sql = sql + " + (select isnull(sum(Diferencia),0) from Prenda Pren where Pren.CodVenta = v.CodVenta )";
             //sql = sql + " - (select isnull(sum(Importe),0) from Impuesto Imp where Imp.CodVenta = v.CodVenta )";
