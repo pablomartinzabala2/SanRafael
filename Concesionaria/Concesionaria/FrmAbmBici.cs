@@ -175,5 +175,10 @@ namespace Concesionaria
             Grupo.Enabled = false;
             fun.LimpiarGenerico(this);
         }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
