@@ -105,6 +105,5 @@ F:\PROGRAMACION 2\ProyectoSanRafael\SanRafael\Concesionaria\Concesionaria\obj\x8
 F:\PROGRAMACION 2\ProyectoSanRafael\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
 F:\PROGRAMACION 2\ProyectoSanRafael\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.exe
 F:\PROGRAMACION 2\ProyectoSanRafael\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.pdb
-F:\PROGRAMACION 2\ProyectoSanRafael\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csprojResolveAssemblyReference.cache
 F:\PROGRAMACION 2\ProyectoSanRafael\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FormBase.resources
 F:\PROGRAMACION 2\ProyectoSanRafael\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmBici.resources
