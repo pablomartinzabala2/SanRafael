@@ -86,6 +86,14 @@ namespace Concesionaria
             tbCliente = fun.CrearTabla(ColCliente);
         }
 
+        private void CargarMarcaBici()
+        {
+            cFunciones fun = new Clases.cFunciones();    
+            cBici bici = new Clases.cBici();
+            DataTable trdo = bici.GetMarcaBici();
+            fun.LlenarComboDatatable(cmbMarcaBici, trdo, "Nombre", "CodMarca");
+        }
+
         private void CargarMarcaAuto()
         {
             cFunciones fun = new cFunciones();
@@ -752,6 +760,23 @@ namespace Concesionaria
                         Lista.DataSource = tbPapeles;
                         Lista.DisplayMember = "Nombre";
                         Lista.ValueMember = "CodPapel";
+                        break;
+                    case "Bicicleta":
+                        Int32 CodBici = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+                        cBici bici = new cBici();
+                        DataTable trbici = bici.GetBicixCodigo(CodBici);
+                        if (trbici.Rows.Count >0)
+                        {
+                            txtCodBici.Text = trbici.Rows[0]["CodBici"].ToString();
+                            txtColorBici.Text = trbici.Rows[0]["Color"].ToString();
+                            txtTalleBici.Text = trbici.Rows[0]["Talle"].ToString();
+                            txtNumeroCuadro.Text = trbici.Rows[0]["NumeroCuadro"].ToString();
+                            if (trbici.Rows[0]["CodMarca"].ToString()!="")
+                            {
+                                cmbMarcaBici.SelectedValue = trbici.Rows[0]["CodMarca"].ToString();
+                            }
+
+                        }
                         break;
 
                 }
@@ -2439,6 +2464,20 @@ namespace Concesionaria
             string Cod = GrillaCliente.CurrentRow.Cells[0].Value.ToString();
             tbCliente = fun.EliminarFila(tbCliente, "CodCliente", Cod);
             GrillaCliente.DataSource = tbCliente;
+        }
+
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarBici_Click(object sender, EventArgs e)
+        {
+           
+            Principal.NombreTablaSecundario = "Bicicleta";
+            FrmBuscarBici frm = new Concesionaria.FrmBuscarBici();
+            frm.FormClosing += new FormClosingEventHandler(form_FormClosing);
+            frm.ShowDialog();
         }
     }
 }

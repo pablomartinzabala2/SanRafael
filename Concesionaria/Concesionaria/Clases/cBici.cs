@@ -20,5 +20,23 @@ namespace Concesionaria.Clases
             cDb.ExecutarNonQuery(sql);
         }
 
+        public DataTable GetBicicletas()
+        {
+            string sql = "select b.CodBici";
+            sql = sql + ",m.Nombre ";
+            sql = sql + ",b.Talle,b.Color,b.NumeroCuadro";
+            sql = sql + " from Bicicleta b, Marca m";
+            sql = sql + " where b.CodMarca = m.CodMarca ";
+            sql = sql + " order by m.Nombre ";
+            return cDb.ExecuteDataTable(sql);
+        }
+
+        public DataTable GetBicixCodigo(Int32 CodBici)
+        {
+            string sql = "select * from Bicicleta ";
+            sql = sql + " where CodBici=" + CodBici.ToString();
+            return cDb.ExecuteDataTable(sql);
+        }
+
     }
 }

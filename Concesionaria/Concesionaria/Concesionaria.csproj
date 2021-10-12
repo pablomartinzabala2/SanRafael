@@ -258,6 +258,12 @@
     <Compile Include="FrmBuscadorGenerico.Designer.cs">
       <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuscarBici.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscarBici.Designer.cs">
+      <DependentUpon>FrmBuscarBici.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCobroCheque.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -793,6 +799,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscadorGenerico.resx">
       <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscarBici.resx">
+      <DependentUpon>FrmBuscarBici.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCobroCheque.resx">
       <DependentUpon>FrmCobroCheque.cs</DependentUpon>

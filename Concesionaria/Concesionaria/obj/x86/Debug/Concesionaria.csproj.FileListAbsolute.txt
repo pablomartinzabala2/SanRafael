@@ -219,3 +219,4 @@ C:\Users\ZABALA\GIT\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\Concesio
 C:\Users\ZABALA\GIT\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.csproj.GenerateResource.Cache
 C:\Users\ZABALA\GIT\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 C:\Users\ZABALA\GIT\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
+C:\Users\ZABALA\GIT\SanRafael\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBuscarBici.resources
