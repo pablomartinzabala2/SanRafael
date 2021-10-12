@@ -86,7 +86,7 @@ namespace Concesionaria
                     cBici bici = new cBici();
                     Int32 CodMarca = Convert.ToInt32(Principal.CampoIdSecundarioGenerado);
                     bici.ActulizarMarcaBici(CodMarca);
-                    Botonera(3);
+                   // Botonera(3);
                     CargarMarcas();
                     cmb_CodMarca.SelectedValue = CodMarca.ToString();               
                 }
