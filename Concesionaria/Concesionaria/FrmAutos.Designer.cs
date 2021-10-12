@@ -193,6 +193,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.Imagen = new System.Windows.Forms.PictureBox();
             this.btnBuscarBici = new System.Windows.Forms.Button();
+            this.txtCantidadBici = new System.Windows.Forms.TextBox();
+            this.txtPrecioBici = new System.Windows.Forms.TextBox();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.btnQuitarBici = new System.Windows.Forms.Button();
+            this.btnAgregarBici = new System.Windows.Forms.Button();
+            this.GrillaBicicleta = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaCliente)).BeginInit();
@@ -215,6 +222,7 @@
             this.tabPage10.SuspendLayout();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Imagen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaBicicleta)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -905,12 +913,12 @@
             // tabControl2
             // 
             this.tabControl2.Controls.Add(this.tabPage1);
+            this.tabControl2.Controls.Add(this.tabPage10);
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage6);
             this.tabControl2.Controls.Add(this.tabPage7);
             this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Controls.Add(this.tabPage9);
-            this.tabControl2.Controls.Add(this.tabPage10);
             this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl2.Location = new System.Drawing.Point(12, 2);
             this.tabControl2.Name = "tabControl2";
@@ -1574,6 +1582,13 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.GrillaBicicleta);
+            this.Grupo.Controls.Add(this.btnQuitarBici);
+            this.Grupo.Controls.Add(this.label54);
+            this.Grupo.Controls.Add(this.btnAgregarBici);
+            this.Grupo.Controls.Add(this.label53);
+            this.Grupo.Controls.Add(this.txtPrecioBici);
+            this.Grupo.Controls.Add(this.txtCantidadBici);
             this.Grupo.Controls.Add(this.btnBuscarBici);
             this.Grupo.Controls.Add(this.txtColorBici);
             this.Grupo.Controls.Add(this.txtNumeroCuadro);
@@ -1585,16 +1600,16 @@
             this.Grupo.Controls.Add(this.txtTalleBici);
             this.Grupo.Controls.Add(this.label52);
             this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grupo.Location = new System.Drawing.Point(22, 13);
+            this.Grupo.Location = new System.Drawing.Point(15, 3);
             this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(729, 150);
+            this.Grupo.Size = new System.Drawing.Size(774, 229);
             this.Grupo.TabIndex = 17;
             this.Grupo.TabStop = false;
             this.Grupo.Text = "Información ";
             // 
             // txtNumeroCuadro
             // 
-            this.txtNumeroCuadro.Location = new System.Drawing.Point(412, 58);
+            this.txtNumeroCuadro.Location = new System.Drawing.Point(425, 57);
             this.txtNumeroCuadro.Name = "txtNumeroCuadro";
             this.txtNumeroCuadro.Size = new System.Drawing.Size(241, 22);
             this.txtNumeroCuadro.TabIndex = 25;
@@ -1662,7 +1677,7 @@
             // 
             // txtColorBici
             // 
-            this.txtColorBici.Location = new System.Drawing.Point(413, 30);
+            this.txtColorBici.Location = new System.Drawing.Point(425, 30);
             this.txtColorBici.Name = "txtColorBici";
             this.txtColorBici.Size = new System.Drawing.Size(241, 22);
             this.txtColorBici.TabIndex = 27;
@@ -1878,12 +1893,74 @@
             // btnBuscarBici
             // 
             this.btnBuscarBici.Image = global::Concesionaria.Properties.Resources.Folder;
-            this.btnBuscarBici.Location = new System.Drawing.Point(660, 27);
+            this.btnBuscarBici.Location = new System.Drawing.Point(681, 26);
             this.btnBuscarBici.Name = "btnBuscarBici";
             this.btnBuscarBici.Size = new System.Drawing.Size(40, 28);
             this.btnBuscarBici.TabIndex = 26;
             this.btnBuscarBici.UseVisualStyleBackColor = true;
             this.btnBuscarBici.Click += new System.EventHandler(this.btnBuscarBici_Click);
+            // 
+            // txtCantidadBici
+            // 
+            this.txtCantidadBici.Location = new System.Drawing.Point(95, 85);
+            this.txtCantidadBici.Name = "txtCantidadBici";
+            this.txtCantidadBici.Size = new System.Drawing.Size(241, 22);
+            this.txtCantidadBici.TabIndex = 28;
+            // 
+            // txtPrecioBici
+            // 
+            this.txtPrecioBici.Location = new System.Drawing.Point(425, 85);
+            this.txtPrecioBici.Name = "txtPrecioBici";
+            this.txtPrecioBici.Size = new System.Drawing.Size(241, 22);
+            this.txtPrecioBici.TabIndex = 29;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(8, 85);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(62, 16);
+            this.label53.TabIndex = 30;
+            this.label53.Text = "Cantidad";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(342, 85);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(47, 16);
+            this.label54.TabIndex = 31;
+            this.label54.Text = "Precio";
+            // 
+            // btnQuitarBici
+            // 
+            this.btnQuitarBici.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitarBici.Image")));
+            this.btnQuitarBici.Location = new System.Drawing.Point(727, 79);
+            this.btnQuitarBici.Name = "btnQuitarBici";
+            this.btnQuitarBici.Size = new System.Drawing.Size(40, 29);
+            this.btnQuitarBici.TabIndex = 66;
+            this.btnQuitarBici.UseVisualStyleBackColor = true;
+            this.btnQuitarBici.Click += new System.EventHandler(this.btnQuitarBici_Click);
+            // 
+            // btnAgregarBici
+            // 
+            this.btnAgregarBici.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarBici.Image")));
+            this.btnAgregarBici.Location = new System.Drawing.Point(681, 82);
+            this.btnAgregarBici.Name = "btnAgregarBici";
+            this.btnAgregarBici.Size = new System.Drawing.Size(40, 29);
+            this.btnAgregarBici.TabIndex = 65;
+            this.btnAgregarBici.UseVisualStyleBackColor = true;
+            this.btnAgregarBici.Click += new System.EventHandler(this.btnAgregarBici_Click);
+            // 
+            // GrillaBicicleta
+            // 
+            this.GrillaBicicleta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GrillaBicicleta.Location = new System.Drawing.Point(9, 122);
+            this.GrillaBicicleta.Name = "GrillaBicicleta";
+            this.GrillaBicicleta.ReadOnly = true;
+            this.GrillaBicicleta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.GrillaBicicleta.Size = new System.Drawing.Size(758, 96);
+            this.GrillaBicicleta.TabIndex = 67;
             // 
             // FrmAutos
             // 
@@ -1947,6 +2024,7 @@
             this.Grupo.ResumeLayout(false);
             this.Grupo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Imagen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GrillaBicicleta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2118,5 +2196,12 @@
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Button btnBuscarBici;
         private System.Windows.Forms.TextBox txtColorBici;
+        private System.Windows.Forms.Button btnQuitarBici;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Button btnAgregarBici;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.TextBox txtPrecioBici;
+        private System.Windows.Forms.TextBox txtCantidadBici;
+        private System.Windows.Forms.DataGridView GrillaBicicleta;
     }
 }

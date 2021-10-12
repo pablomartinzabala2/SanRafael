@@ -15,6 +15,7 @@ namespace Concesionaria
     {
         DataTable tbListaPapeles;
         DataTable tbCliente;
+        DataTable tbBici;
         public FrmAutos()
         {
             InitializeComponent();
@@ -84,6 +85,9 @@ namespace Concesionaria
             tbListaPapeles.Columns.Add("FechaVencimiento");
             string ColCliente = "CodCliente;Apellido;Nombre;Nrodocumento;Telefono";
             tbCliente = fun.CrearTabla(ColCliente);
+            CargarMarcaBici();
+            string COlBici = "CodBici;CodVenta;Marca;Color;Talle;Precio;Cantidad;Subtotal";
+            tbBici = fun.CrearTabla(COlBici); 
         }
 
         private void CargarMarcaBici()
@@ -2478,6 +2482,69 @@ namespace Concesionaria
             FrmBuscarBici frm = new Concesionaria.FrmBuscarBici();
             frm.FormClosing += new FormClosingEventHandler(form_FormClosing);
             frm.ShowDialog();
+        }
+
+        private void btnAgregarBici_Click(object sender, EventArgs e)
+        {
+            cFunciones fun = new cFunciones();
+            if (txtCodBici.Text =="")
+            {
+                Mensaje("Debe seleccionar una bicicleta");
+                return;
+            }
+
+            if (txtPrecioBici.Text =="")
+            {
+                Mensaje("Debe ingresar un precio de Bicicleta");
+                return;
+            }
+
+            if (txtCantidadBici.Text =="")
+            {
+                Mensaje("Debe ingresar una cantidad de bicicletas");
+                return;
+            }
+            //string COlBici = "CodBici;CodVenta;Marca;Color;Talle;Precio;Cantidad;Subtotal";
+            string CodBici = txtCodBici.Text;
+            string CodVenta = "0";
+            string Marca = cmbMarcaBici.Text;
+            string Color = txtColorBici.Text;
+            string Talle = txtTalleBici.Text;
+            int  Cantidad = Convert.ToInt32(txtCantidadBici.Text);
+            Double Precio = Convert.ToDouble (txtPrecioBici.Text);
+            Double Subtotal = Precio * Cantidad;
+            string Valores = CodBici + ";" + CodVenta;
+            Valores = Valores + ";" + Marca + ";" + Color;
+            Valores = Valores + ";" + Talle;
+            Valores = Valores + ";" + Precio.ToString();
+            Valores = Valores + ";" + Cantidad.ToString();
+            Valores = Valores + ";" + Subtotal.ToString();
+            fun.AgregarFilas(tbBici, Valores);
+            GrillaBicicleta.DataSource = tbBici;
+            FomatoGrillaBici();
+        }
+
+        public void FomatoGrillaBici()
+        {
+            cFunciones fun = new cFunciones();
+            string Col = "0;0;25;20;20;12;10;13";
+            fun.AnchoColumnas(GrillaBicicleta, Col);
+            Double Total = fun.TotalizarColumna(tbBici, "Subtotal");
+            txtTotal.Text = Total.ToString();
+            txtTotal.Text = fun.FormatoEnteroMiles(txtTotal.Text);
+        }
+
+        private void btnQuitarBici_Click(object sender, EventArgs e)
+        {
+            if (GrillaBicicleta.CurrentRow ==null)
+            {
+                Mensaje("Debe seleccionar un registro");
+                return;
+            }
+            string CodBici = GrillaBicicleta.CurrentRow.Cells[0].Value.ToString(); 
+            cFunciones fun = new Clases.cFunciones();
+            tbBici = fun.EliminarFila(tbBici, "CodBici", CodBici);
+            FomatoGrillaBici();
         }
     }
 }
